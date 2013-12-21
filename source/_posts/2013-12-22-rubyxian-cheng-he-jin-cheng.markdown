@@ -135,4 +135,16 @@ fork { exec("sort testfile > output.txt") }
 
 #produces:
 #Child pid 123456: terminated
+
+############# 我是分割线
+
+#这个表明子进程不会退出
+fork do
+  5.times do
+    sleep 1
+    puts "I'm an orphan!"
+  end
+end
+
+abort "Parent process died..."
 ```
